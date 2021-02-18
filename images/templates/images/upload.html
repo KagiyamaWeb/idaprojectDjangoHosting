@@ -1,0 +1,19 @@
+
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <title>Загрузить изображение</title> 
+</head> 
+<body> 
+    <p><a href="{% url 'images:index' %}">Назад к списку</a></p>
+    <form method = "post" enctype="multipart/form-data"> 
+        {% csrf_token %} 
+        <p>Файл:</p>
+        <input type="file" name="image">
+        <p>Ссылка:</p>
+        <input type="url" name="image_url">
+        <p><button type="submit">Отправить</button></p> 
+    </form> 
+</body> 
+</html> 

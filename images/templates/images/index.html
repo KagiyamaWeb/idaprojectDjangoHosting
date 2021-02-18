@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Изображения</title>
+  </head>
+<body>
+    <h1>Список изображений</h1>
+{% if latest_image_list %}
+    <ul>
+    {% for image in latest_image_list %}
+        <li><a href="{% url 'images:detail' image.id %}">{{ image.id}}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Нет доступных изображений</p>
+{% endif %}
+<p><a href="{% url 'images:upload' %}">Добавить изображение</a></p>
+</body>
+</html>

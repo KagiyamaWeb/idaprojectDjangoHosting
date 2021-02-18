@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{image.id}}</title>
+  </head>
+<body>
+    <p><a href="{% url 'images:index' %}">Назад к списку</a></p>
+    <form method = "post" enctype="multipart/form-data">
+      {% csrf_token %}  
+      <p>Высота: </p>
+      <input type="number" name="image_height" value="{{ image.image_height }}">
+      <p>Ширина: </p>
+      <input type="number" name="image_width" value="{{ image.image_width}}">
+      <button type="submit">Отправить</button> 
+    </form>
+    <img src="{{ image.image.url }}" width="{{ image.image_width }}" height="{{ image.image_height }}">
+  </body>
+</html>
